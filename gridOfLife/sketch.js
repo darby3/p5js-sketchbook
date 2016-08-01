@@ -1,6 +1,10 @@
 var block;
 var blocks = [];
 
+var desktopWidth = 2560;
+var desktopHeight = 1600;
+var canvasScalingFactor = 3;
+
 function coinFlip() {
   return Math.floor(Math.random() * 2);
 }
@@ -27,15 +31,15 @@ function Block(gridSize) {
   
     if (coinFlip()) {
       if (coinFlip()) {
-        this.x = this.x + gridSize;
+        this.x = this.x + gridSize / 2;
       } else {
-        this.y = this.y + gridSize;
+        this.y = this.y + gridSize / 2;
       }
     } else {
       if (coinFlip()) {
-        this.x = this.x - gridSize;
+        this.x = this.x - gridSize / 2;
       } else {
-        this.y = this.y - gridSize;
+        this.y = this.y - gridSize / 2;
       }
     }
   };
@@ -52,10 +56,8 @@ function createBlocks(num) {
   
 }
 
-var canvasScalingFactor = 2;
-
 function setup() {
-  createCanvas(2560 / canvasScalingFactor, 1440 / canvasScalingFactor);
+  createCanvas(desktopWidth / canvasScalingFactor, desktopHeight / canvasScalingFactor);
   background(0, 46, 96);
   fill(0, 176, 54, 35);
   stroke(255, 255, 255, 100);
@@ -72,11 +74,11 @@ function draw() {
     blocks[i].update();
   }
   
-  var numberToDie = Math.floor(random(20));
+  var numberToDie = Math.floor(random(10));
   
   println(blocks.length);
   
-  if (blocks.length > 1000) {
+  if (blocks.length > 10) {
     for (var kill = numberToDie; kill >= 0; kill--) {
       if (coinFlip()) {
         blocks[kill].die();        
