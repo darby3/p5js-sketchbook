@@ -6,31 +6,25 @@ function coinFlip() {
 }
 
 function Block(gridSize) {
-  this.x = width/2;
-  this.y = height/2;
+  this.x = mouseX;
+  this.y = mouseY;
   
   this.draw = function() {
     rect(this.x, this.y, gridSize, gridSize)
   };
+
+  this.die = function() {
+    var i = blocks.indexOf(this);
+    blocks.splice(i, 1);
+  }
   
   this.update = function() {
     
-    // if (this.x > width || this.x < 0) {
-    //   this.x = width/2;
-    // }
-    
-    // if (this.y > height || this.y < 0) {
-    //   this.y = height/2;
-    // }
-
-
     if (this.x > width || this.x < 0 || this.y > height || this.y < 0) {
       this.x = width / 2;
       this.y = height / 2
     }
   
-
-    
     if (coinFlip()) {
       if (coinFlip()) {
         this.x = this.x + gridSize;
@@ -53,15 +47,16 @@ function createBlocks(num) {
   var newTop = top + num;
   
   for (var i = top; i < newTop; i++) {
-    blocks[i] = new Block(36);
+    blocks[i] = new Block(12);
   }
   
 }
 
+var canvasScalingFactor = 2;
 
 function setup() {
-  createCanvas(2560, 1440);
-  background(0, 46, 119);
+  createCanvas(2560 / canvasScalingFactor, 1440 / canvasScalingFactor);
+  background(0, 46, 96);
   fill(0, 176, 54, 35);
   stroke(255, 255, 255, 100);
   
@@ -69,12 +64,24 @@ function setup() {
 }
 
 function draw() {
-  background(0, 46, 119);
+  background(0, 46, 96);
   stroke(255, 255, 255, 10);
 
   for (var i= 0; i < blocks.length; i++) {
     blocks[i].draw();
     blocks[i].update();
+  }
+  
+  var numberToDie = Math.floor(random(20));
+  
+  println(blocks.length);
+  
+  if (blocks.length > 1000) {
+    for (var kill = numberToDie; kill >= 0; kill--) {
+      if (coinFlip()) {
+        blocks[kill].die();        
+      }
+    }
   }
   
 }
