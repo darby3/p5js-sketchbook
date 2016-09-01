@@ -1,0 +1,17 @@
+/* Styles */
+
+body {
+  background: #000000;
+  text-align: center;
+
+  padding: 0; margin: 0;
+}
+
+canvas {
+  vertical-align: top;
+  border: 1px dotted rgba(255, 255, 255, .5);
+}
+
+h1 {
+  color: #ffffff;
+}
