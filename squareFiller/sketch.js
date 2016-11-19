@@ -1,7 +1,7 @@
 var w = 1024;
 var h = 768;
 
-var tot = 5143;
+var tot = 400;
 
 var finalSize;
 
