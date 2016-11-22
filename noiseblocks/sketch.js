@@ -107,6 +107,6 @@ function draw() {
     blocks[i].update();
   }
 
-  var canvasName = "myCanvas" + nf(frameCount, 5) + ".png";
-  saveCanvas(canvasName, 'png');
+  // var canvasName = "myCanvas" + nf(frameCount, 5) + ".png";
+  // saveCanvas(canvasName, 'png');
 }

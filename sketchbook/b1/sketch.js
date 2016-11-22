@@ -97,7 +97,7 @@ function draw() {
   }
 
   
-  var canvasName = "fungrid" + nf(frameCount, 5) + ".png";
-  saveCanvas(canvasName, 'png');
+  // var canvasName = "fungrid" + nf(frameCount, 5) + ".png";
+  // saveCanvas(canvasName, 'png');
   
 }
