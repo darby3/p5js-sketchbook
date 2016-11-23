@@ -319,7 +319,7 @@ function draw() {
   background(20, 23, 12);
 
 
-  strokeWeight(10);
+  strokeWeight(40);
   
   stroke(0, 0, 255, 20);
   for (var i = 0; i < gridSteps.length; i++) {
