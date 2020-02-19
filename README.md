@@ -5,7 +5,7 @@ Random p5js experiments.
 
 - [codeLiner](./codeLiner)
 - [gridOfLife](./gridOfLife)
-- [noiseBlocks](./noiseBlocks)
-- [noiseBlocksB](./noiseBlocksB)
+- [noiseblocks](./noiseblocks)
+- [noiseblocksB](./noiseblocksB)
 - [sketchbook](./sketchbook)
 - [squareFiller](./squareFiller)
